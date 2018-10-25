@@ -1,6 +1,6 @@
 {
   "name": "tyson",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,8 @@
     "typescript": "^3.0.3"
   },
   "dependencies": {
+    "camelcase": "^5.0.0",
+    "moment": "^2.22.2",
     "ws": "^6.0.0"
   }
 }
