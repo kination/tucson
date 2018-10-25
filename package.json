@@ -16,6 +16,8 @@
   "dependencies": {
     "@types/camelcase": "^4.1.0",
     "@types/moment": "^2.13.0",
+    "camelcase": "^5.0.0",
+    "moment": "^2.22.2",
     "ws": "^6.0.0"
   }
 }
