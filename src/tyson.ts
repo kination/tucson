@@ -1,5 +1,5 @@
 import * as camelCase from 'camelcase'
-import { snakeCase } from 'just-snake-case'
+import snakeCase from './snakeCase'
 import * as moment from 'moment'
 
 import { JsonOption } from './jsonOption'
@@ -39,14 +39,14 @@ export class Tyson {
       // make data as form of 'Date' when key is included in 'exclude' list
       if (option.makeDate && option.makeDate.indexOf(key as keyof T1) > -1) {
         if (moment(value).isValid()) {
-          instance[converter(key)] = moment(value).toDate()
+          instance[converter(this.config.keyConvert, key)] = moment(value).toDate()
         } else {
-          instance[converter(key)] = value
+          instance[converter(this.config.keyConvert, key)] = value
         }
         continue
       }
-  
-      instance[converter(key)] = value
+      
+      instance[converter(this.config.keyConvert, key)] = value
     }
   
     return instance

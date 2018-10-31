@@ -1,7 +1,7 @@
 import { KeyConvertType } from './types'
 
 export class Config {
-  keyConvert: KeyConvertType = 'camelCase'
+  public keyConvert: KeyConvertType = 'camelCase'
   // exceptionFilter: string = '' => TODO
 
   constructor (keyConvert: KeyConvertType) {
