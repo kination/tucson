@@ -16,14 +16,14 @@ const converter = (convertType: KeyConvertType, key: string): string => {
   return key
 } 
 
-export class Tyson {
+export class Tucson {
   config: Config
 
   constructor (config: Config) {
     this.config = config
   }
 
-  tuned<T1, T2> (obj: T1, option: JsonOption<T1>, instance: T2): T2 {
+  formed<T1, T2> (obj: T1, option: JsonOption<T1>, instance: T2): T2 {
     if (!obj) {
       return instance
     }

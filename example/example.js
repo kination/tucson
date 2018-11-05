@@ -1,4 +1,4 @@
-let { Tyson, Config } = require('../lib/index')
+let { Tucson, Config } = require('../lib/index')
 
 const dummyUnderscoreJson = {
   "id": 139,
@@ -10,12 +10,12 @@ const dummyUnderscoreJson = {
   "date": "2014-06-01 12:00"
 }
 
-let tunedResult = {}
-let cctyson = new Tyson(new Config('camelCase'))
-cctyson.tuned(dummyUnderscoreJson, {makeDate: ['date']}, tunedResult)
-console.log(`camelcase json: ${JSON.stringify(tunedResult)}`)
+let formedResult = {}
+let ccTucson = new Tucson(new Config('camelCase'))
+ccTucson.formed(dummyUnderscoreJson, {makeDate: ['date']}, formedResult)
+console.log(`camelcase json: ${JSON.stringify(formedResult)}`)
 
-let tunedResult_sc = {}
-let sctyson = new Tyson(new Config('snake_case'))
-sctyson.tuned(tunedResult, {}, tunedResult_sc)
-console.log(`snake_case json: ${JSON.stringify(tunedResult_sc)}`)
+let formedResult_sc = {}
+let scTucson = new Tucson(new Config('snake_case'))
+scTucson.formed(formedResult, {}, formedResult_sc)
+console.log(`snake_case json: ${JSON.stringify(formedResult_sc)}`)

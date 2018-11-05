@@ -1,6 +1,6 @@
 let assert = require('assert');
 let moment = require('moment')
-let { Tyson, Config } = require('../lib/index')
+let { Tucson, Config } = require('../lib/index')
 
 describe('to camelcase', () => {
 
@@ -11,23 +11,23 @@ describe('to camelcase', () => {
     'company': 'LeapMind',
     'date': '2014-06-01 12:00'
   }
-  let tunedResult = {}
-  let cctyson = new Tyson(new Config('camelCase'))
+  let formedResult = {}
+  let cctucson = new Tucson(new Config('camelCase'))
 
   before(() => {
-    cctyson.tuned(dummyUnderscoreJson, {makeDate: ['date']}, tunedResult)
+    cctucson.formed(dummyUnderscoreJson, {makeDate: ['date']}, formedResult)
   })
 
   describe('check key', () => {
     it('key should be changed as camelcase', function() {
-      assert.equal(tunedResult.hasOwnProperty('groupCode'), true)
-      assert.equal(tunedResult.hasOwnProperty('phoneNumber'), true)
+      assert.equal(formedResult.hasOwnProperty('groupCode'), true)
+      assert.equal(formedResult.hasOwnProperty('phoneNumber'), true)
     });
   });
 
   describe('check makeDate', () => {
     it('value with `makeDate` should be converted as Moment', function() {
-      assert.equal(tunedResult['date'].valueOf(), moment('2014-06-01 12:00').toDate().valueOf())
+      assert.equal(formedResult['date'].valueOf(), moment('2014-06-01 12:00').toDate().valueOf())
     });
   });
 });
