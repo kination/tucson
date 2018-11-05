@@ -1,0 +1,13 @@
+# npm
+node_modules/
+.node_modules/
+built/*
+
+# IDE
+.idea/
+.vscode/
+
+# we don't need src/test for release
+example/
+src/
+test/

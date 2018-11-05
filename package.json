@@ -1,14 +1,20 @@
 {
   "name": "tucson",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.1",
+  "description": "Convert JSON key/values to make it fit on your project",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "test": "mocha",
+    "build": "tsc",
+    "prepublishOnly": "yarn run test && yarn run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "tucson",
+    "json",
+    "convert"
+  ],
+  "author": "Dennis Jung <inylove82@gmail.com>",
+  "repository": "https://github.com/djKooks/tucson",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^5.2.0",
