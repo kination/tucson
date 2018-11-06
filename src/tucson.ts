@@ -1,36 +1,36 @@
 import * as camelCase from 'camelcase'
-import snakeCase from './snakeCase'
 import * as moment from 'moment'
 
-import { JsonOption } from './jsonOption'
 import { Config } from './config'
+import { IJsonOption } from './jsonOption'
+import snakeCase from './snakeCase'
 import { KeyConvertType } from './types'
 
-
 const converter = (convertType: KeyConvertType, key: string): string => {
-  if (convertType === 'camelCase')
+  if (convertType === 'camelCase') {
     return camelCase(key)
-  else if (convertType === 'snake_case')
+  } else if (convertType === 'snake_case') {
     return snakeCase(key)
+  }
 
   return key
-} 
+}
 
 export class Tucson {
-  config: Config
+  private config: Config
 
   constructor (config: Config) {
     this.config = config
   }
 
-  formed<T1, T2> (obj: T1, option: JsonOption<T1>, instance: T2): T2 {
+  public formed<T1, T2> (obj: T1, option: IJsonOption<T1>, instance: T2): T2 {
     if (!obj) {
       return instance
     }
-  
+
     for (const key of Object.keys(obj)) {
       const value = obj[key]
-  
+
       // ignore key-value when key is included in 'exclude' list
       if (option.exclude && option.exclude.indexOf(key as keyof T1) > -1) {
         continue
@@ -41,7 +41,7 @@ export class Tucson {
         instance[converter(this.config.keyConvert, key)] = Boolean(value)
         continue
       }
-  
+
       // make data as form of 'Date' when key is included in 'exclude' list
       if (option.makeDate && option.makeDate.indexOf(key as keyof T1) > -1) {
         if (moment(value).isValid()) {
@@ -54,7 +54,7 @@ export class Tucson {
 
       instance[converter(this.config.keyConvert, key)] = value
     }
-  
+
     return instance
-  } 
+  }
 }

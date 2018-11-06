@@ -16,4 +16,11 @@ ccTucson.formed(dummyUnderscoreJson, {
   makeDate: ['date'],
   makeBool: ['is_valid']
 }, formedResult)
+console.log(`===============================================`)
 console.log(`camelcase json: ${JSON.stringify(formedResult)}`)
+
+let formedResult_sc = {}
+let scTucson = new Tucson(new Config('snake_case'))
+scTucson.formed(formedResult, {}, formedResult_sc)
+console.log(`===============================================`)
+console.log(`snake_case json: ${JSON.stringify(formedResult_sc)}`)
