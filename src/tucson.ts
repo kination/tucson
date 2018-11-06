@@ -35,6 +35,12 @@ export class Tucson {
       if (option.exclude && option.exclude.indexOf(key as keyof T1) > -1) {
         continue
       }
+
+      // make data as form of 'Boolean' when key is included in 'exclude' list
+      if (option.makeBool && option.makeBool.indexOf(key as keyof T1) > -1) {
+        instance[converter(this.config.keyConvert, key)] = Boolean(value)
+        continue
+      }
   
       // make data as form of 'Date' when key is included in 'exclude' list
       if (option.makeDate && option.makeDate.indexOf(key as keyof T1) > -1) {
@@ -45,11 +51,10 @@ export class Tucson {
         }
         continue
       }
-      
+
       instance[converter(this.config.keyConvert, key)] = value
     }
   
     return instance
   } 
-  
 }
