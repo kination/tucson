@@ -15,6 +15,7 @@ So this is why I thought about this. By wrapping response data with this and set
 * [odoku](https://github.com/odoku)
 
 ## Usage
+_This is still in beta status, so API format/name could be changed by version updates._
 
 ### Installation
 ```
@@ -34,12 +35,16 @@ const dummyUnderscoreJson = {
   "user": "inylove82@gmail.com",
   "phone_number": "000-111-2222",
   "salary": "Unknown",
+  "is_valid": 0,
   "date": "2014-06-01 12:00"
 }
 
 let formedResult = {}
 let cctucson = new Tucson(new Config('camelCase'))
-cctucson.formed(dummyUnderscoreJson, {makeDate: ['date']}, formedResult)
+ccTucson.formed(dummyUnderscoreJson, {
+  makeDate: ['date'],
+  makeBool: ['is_valid']
+}, formedResult)
 console.log(formedResult)
 ```
 ...result is...
@@ -49,6 +54,7 @@ console.log(formedResult)
     "user":"inylove82@gmail.com",
     "phoneNumber":"000-111-2222",
     "salary":"Unknown",
+    "is_valid": false,
     "date":"2014-06-01T03:00:00.000Z"
 }
 ```
@@ -57,6 +63,7 @@ console.log(formedResult)
 ------
 #### Config
 It has single parameter(will be updated more...)
+
 Key Name | Type | Available Value
 --- | --- | ---
 KeyConvertType | string | 'camelCase', 'snake_case'
@@ -64,12 +71,12 @@ KeyConvertType | string | 'camelCase', 'snake_case'
 #### Tucson::formed
 Definition of `formed` is:
 ```
-Tucson.formed(originalObject, option, reformedObject)
+Tucson.formed(original-object, option, reformed-object)
 ```
-Second parameter is JSON format option to select converting rule.
+Second parameter is JSON format option to select converting rule. More options will be updated.
 
 Key Name | Type | Description
 --- | --- | ---
-exclude | string[key of original json] | Exclude selected keys
+exclude | string[key of original json] | Exclude selected keys in reformed object
 makeDate | string[key of original json] | Make value of selected keys as format of Moment.Date
 makeBool | string[key of original json] | Make value of selected keys as boolean.
