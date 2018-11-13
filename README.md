@@ -43,7 +43,7 @@ const dummyUnderscoreJson = {
 
 let formedResult = {}
 let cctucson = new Tucson(new Config('camelCase'))
-ccTucson.formed(dummyUnderscoreJson, {
+cctucson.formed(dummyUnderscoreJson, {
   makeDate: ['date'],
   makeBool: ['is_valid']
 }, formedResult)
@@ -56,7 +56,7 @@ console.log(formedResult)
     "user":"inylove82@gmail.com",
     "phoneNumber":"000-111-2222",
     "salary":"Unknown",
-    "is_valid": false,
+    "isValid": false,
     "date":"2014-06-01T03:00:00.000Z"
 }
 ```
