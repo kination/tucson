@@ -1,6 +1,8 @@
+[![Build Status](https://travis-ci.org/djKooks/tucson.svg?branch=master)](https://travis-ci.org/djKooks/tucson)
+
 # TUCSON - TUne/Convert Your jSON
 
-Package to convert JSON key/values to make it fit on your project.
+Tucson (/ˈtuːsɒn, tuːˈsɒn/) is a package to convert JSON key/values to make it fit on your project.
 
 ## Motivation
 
