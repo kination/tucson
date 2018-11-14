@@ -1,6 +1,6 @@
 {
   "name": "tucson",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Convert JSON key/values to make it fit on your project",
   "main": "lib/index.js",
   "scripts": {
