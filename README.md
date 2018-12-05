@@ -66,9 +66,9 @@ console.log(formedResult)
 #### Config
 It has single parameter(will be updated more...)
 
-Key Name | Type | Available Value
---- | --- | ---
-KeyConvertType | string | 'camelCase', 'snake_case'
+Key Name | Type | Available Value | Description
+--- | --- | --- | ---
+KeyConvertType (optional) | string | 'camelCase', 'snake_case' | Converting key data to defined type
 
 #### Tucson::formed
 Definition of `formed` is:
