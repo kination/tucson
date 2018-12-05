@@ -82,3 +82,8 @@ Key Name | Type | Description
 exclude | string[key of original json] | Exclude selected keys in reformed object
 makeDate | string[key of original json] | Make value of selected keys as format of Moment.Date
 makeBool | string[key of original json] | Make value of selected keys as boolean.
+
+
+## Contribution
+Any type of contribution/feedback(Issue, PR, or Star) is Welcome! Feel free to join.
+
