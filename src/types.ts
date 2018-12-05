@@ -1,1 +1,1 @@
-export type KeyConvertType = 'snake_case' | 'camelCase'
+export type KeyConvertType = 'snake_case' | 'camelCase' | 'none'
