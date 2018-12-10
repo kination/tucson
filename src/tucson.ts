@@ -1,6 +1,6 @@
-import * as camelCase from 'camelcase'
 import * as moment from 'moment'
 
+import camelCase from './camelCase'
 import { Config } from './config'
 import { IJsonOption } from './jsonOption'
 import snakeCase from './snakeCase'

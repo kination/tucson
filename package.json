@@ -1,13 +1,13 @@
 {
   "name": "tucson",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Convert JSON key/values to make it fit on your project",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha",
     "lint": "tslint -p ./",
-    "build": "yarn run lint && tsc",
-    "prepublishOnly": "yarn run build && yarn run test"
+    "build": "tsc",
+    "prepublishOnly": "yarn run build && yarn run lint && yarn run test"
   },
   "keywords": [
     "tucson",
@@ -24,9 +24,7 @@
     "typescript": "^3.0.3"
   },
   "dependencies": {
-    "@types/camelcase": "^4.1.0",
     "@types/moment": "^2.13.0",
-    "camelcase": "^5.0.0",
     "moment": "^2.22.2",
     "ws": "^6.0.0"
   }
