@@ -31,30 +31,73 @@ export class Tucson {
     for (const key of Object.keys(obj)) {
       const value = obj[key]
 
-      // ignore key-value when key is included in 'exclude' list
-      if (option.exclude && option.exclude.indexOf(key as keyof T1) > -1) {
-        continue
-      }
-
-      // make data as form of 'Boolean' when key is included in 'exclude' list
-      if (option.makeBool && option.makeBool.indexOf(key as keyof T1) > -1) {
-        instance[converter(this.config.keyConvert, key)] = Boolean(value)
-        continue
-      }
-
-      // make data as form of 'Date' when key is included in 'exclude' list
-      if (option.makeDate && option.makeDate.indexOf(key as keyof T1) > -1) {
-        if (moment(value).isValid()) {
-          instance[converter(this.config.keyConvert, key)] = moment(value).toDate()
-        } else {
-          instance[converter(this.config.keyConvert, key)] = value
+      if (typeof value === 'object') {
+        this._former(obj, option, instance, key)
+      } else {
+        // ignore key-value when key is included in 'exclude' list
+        if (option.exclude && option.exclude.indexOf(key as keyof T1) > -1) {
+          continue
         }
-        continue
-      }
 
-      instance[converter(this.config.keyConvert, key)] = value
+        // make data as form of 'Boolean' when key is included in 'exclude' list
+        if (option.makeBool && option.makeBool.indexOf(key as keyof T1) > -1) {
+          instance[converter(this.config.keyConvert, key)] = Boolean(value)
+          continue
+        }
+
+        // make data as form of 'Date' when key is included in 'exclude' list
+        if (option.makeDate && option.makeDate.indexOf(key as keyof T1) > -1) {
+          if (moment(value).isValid()) {
+            instance[converter(this.config.keyConvert, key)] = moment(value).toDate()
+          } else {
+            instance[converter(this.config.keyConvert, key)] = value
+          }
+          continue
+        }
+
+        instance[converter(this.config.keyConvert, key)] = value
+      }
     }
 
     return instance
+  }
+
+  private _former<T1, T2> (org: T1, option: IJsonOption<T1>, converted: T2, orgKey: string): T2 {
+    const obj = org[orgKey]
+    const instance = {}
+    for (const key of Object.keys(obj)) {
+      const value = obj[key]
+
+      if (typeof value === 'object') {
+        this._former(obj, option, instance, key)
+      } else {
+        // ignore key-value when key is included in 'exclude' list
+        if (option.exclude && option.exclude.indexOf(key as keyof T1) > -1) {
+          continue
+        }
+
+        // make data as form of 'Boolean' when key is included in 'exclude' list
+        if (option.makeBool && option.makeBool.indexOf(key as keyof T1) > -1) {
+          instance[converter(this.config.keyConvert, key)] = Boolean(value)
+          continue
+        }
+
+        // make data as form of 'Date' when key is included in 'exclude' list
+        if (option.makeDate && option.makeDate.indexOf(key as keyof T1) > -1) {
+          if (moment(value).isValid()) {
+            instance[converter(this.config.keyConvert, key)] = moment(value).toDate()
+          } else {
+            instance[converter(this.config.keyConvert, key)] = value
+          }
+          continue
+        }
+
+        instance[converter(this.config.keyConvert, key)] = value
+      }
+    }
+
+    converted[converter(this.config.keyConvert, orgKey)] = instance
+
+    return converted
   }
 }

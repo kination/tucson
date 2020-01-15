@@ -5,7 +5,7 @@ const dummyUnderscoreJson = {
   "group_number": 17,
   "user": "inylove82@gmail.com",
   "phone_number": "000-111-2222",
-  "company": "LeapMind",
+  "company": "My company",
   "is_valid": 0,
   "date": "2014-06-01 12:00"
 }
