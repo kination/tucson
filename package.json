@@ -4,10 +4,10 @@
   "description": "Convert JSON key/values to make it fit on your project",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "yarn build && mocha",
     "lint": "tslint -p ./",
     "build": "tsc",
-    "prepublishOnly": "yarn run build && yarn run lint && yarn run test"
+    "prepublishOnly": "yarn lint && yarn test"
   },
   "keywords": [
     "tucson",
