@@ -23,7 +23,7 @@ export class Tucson {
     this.config = config
   }
 
-  public formed<T1, T2> (obj: Object, option: IJsonOption<T1>, instance: T2): T2 {
+  public formed<T1, T2> (obj: object, option: IJsonOption<T1>, instance: T2): T2 {
     if (!obj) {
       return instance
     }
@@ -32,8 +32,8 @@ export class Tucson {
       const value: any = obj[key]
 
       // if value is `object`, recursively call 'formed' to convert inside object
-      if (typeof value == 'object') {
-        let formedResult = {}
+      if (typeof value === 'object') {
+        const formedResult = {}
         this.formed(value, option, formedResult)
         instance[converter(this.config.keyConvert, key)] = formedResult
         continue

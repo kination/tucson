@@ -11,3 +11,6 @@ built/*
 example/
 src/
 test/
+
+# GH workflow files
+.github/

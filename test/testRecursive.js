@@ -1,7 +1,7 @@
 let assert = require('assert')
 let { Tucson, Config } = require('../lib/index')
 
-describe('to camelcase', () => {
+describe('test recursive data', () => {
 
   const dummyUnderscoreJson = {
     'group_code': 17,
