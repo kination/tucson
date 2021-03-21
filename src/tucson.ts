@@ -23,13 +23,21 @@ export class Tucson {
     this.config = config
   }
 
-  public formed<T1, T2> (obj: T1, option: IJsonOption<T1>, instance: T2): T2 {
+  public formed<T1, T2> (obj: Object, option: IJsonOption<T1>, instance: T2): T2 {
     if (!obj) {
       return instance
     }
 
     for (const key of Object.keys(obj)) {
-      const value = obj[key]
+      const value: any = obj[key]
+
+      // if value is `object`, recursively call 'formed' to convert inside object
+      if (typeof value == 'object') {
+        let formedResult = {}
+        this.formed(value, option, formedResult)
+        instance[converter(this.config.keyConvert, key)] = formedResult
+        continue
+      }
 
       // ignore key-value when key is included in 'exclude' list
       if (option.exclude && option.exclude.indexOf(key as keyof T1) > -1) {
