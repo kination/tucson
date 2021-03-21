@@ -9,7 +9,7 @@ describe('to camelcase', () => {
     'user': 'inylove82@gmail.com',
     'phone_number': '000-111-2222',
     'company': 'LeapMind',
-    'date': '2014-06-01 12:00'
+    'date': '2014-06-01 12:00',
   }
   let formedResult = {}
   let cctucson = new Tucson(new Config('camelCase'))
