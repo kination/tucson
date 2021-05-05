@@ -7,9 +7,9 @@ describe('test recursive data', () => {
     'group_code': 17,
     'date': '2014-06-01 12:00',
     'personal_info': {
-      'user': 'inylove82@gmail.com',
+      'user': 'my-user-name',
       'phone_number': '000-111-2222',
-      'company': 'LeapMind',
+      'company': 'online',
     }
   }
   let formedResult = {}
