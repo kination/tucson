@@ -6,9 +6,9 @@ describe('to camelcase', () => {
 
   const dummyUnderscoreJson = {
     'group_code': 17,
-    'user': 'inylove82@gmail.com',
+    'user': 'my-user-name',
     'phone_number': '000-111-2222',
-    'company': 'LeapMind',
+    'company': 'online',
     'date': '2014-06-01 12:00',
   }
   let formedResult = {}
@@ -20,14 +20,14 @@ describe('to camelcase', () => {
 
   describe('check key', () => {
     it('key should be changed as camelcase', function() {
-      assert.equal(formedResult.hasOwnProperty('groupCode'), true)
-      assert.equal(formedResult.hasOwnProperty('phoneNumber'), true)
+      assert(formedResult.hasOwnProperty('groupCode') === true)
+      assert(formedResult.hasOwnProperty('phoneNumber') === true)
     });
   });
 
   describe('check makeDate', () => {
     it('value with `makeDate` should be converted as Moment', function() {
-      assert.equal(formedResult['date'].valueOf(), moment('2014-06-01 12:00').toDate().valueOf())
+      assert(formedResult['date'].valueOf() === moment('2014-06-01 12:00').toDate().valueOf())
     });
   });
 });
