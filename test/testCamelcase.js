@@ -2,7 +2,7 @@ let assert = require('assert');
 let moment = require('moment')
 let { Tucson, Config } = require('../lib/index')
 
-describe('to camelcase', () => {
+describe('Check camelcase', () => {
 
   const dummyUnderscoreJson = {
     'group_code': 17,

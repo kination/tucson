@@ -31,11 +31,28 @@ export class Tucson {
     for (const key of Object.keys(obj)) {
       const value: any = obj[key]
 
-      // if value is `object`, recursively call 'formed' to convert inside object
+      // if value is `object`, 
+      // if type is 'Date', don't make conversion
+      // if type is 'Array', convert items with loop
+      // else type is common object, recursively call 'formed' to convert inside object
       if (typeof value === 'object') {
-        const formedResult = {}
-        this.formed(value, option, formedResult)
-        instance[converter(this.config.keyConvert, key)] = formedResult
+        if (value instanceof Date) {
+          instance[converter(this.config.keyConvert, key)] = value
+        } else if(value instanceof Array) {
+          const res = []
+          for (const v of value) {
+            const formedResult = {}
+            this.formed(v, option, formedResult)
+            res.push(formedResult)
+          }
+
+          instance[converter(this.config.keyConvert, key)] = res
+        } else {
+          const formedResult = {}
+          this.formed(value, option, formedResult)
+          instance[converter(this.config.keyConvert, key)] = formedResult
+        }
+        
         continue
       }
 
